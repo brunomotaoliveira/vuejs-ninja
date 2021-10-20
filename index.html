@@ -7,8 +7,18 @@
     <title>Aula 01 - Vuejs do jeito ninja!</title>
 </head>
 <body>
+    <div id="app"> <!-- vuejs só vai funcionar dentro da tag pai -->
+        <h1>{{ titulo }}</h1>  <!-- para fazer impressão de qualquer variavel no vuejs, se usa 2 chaves -->
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
-    
+    <script>
+        var app = new Vue({ //vuejs instanciado
+            el: "#app", //element: elemento pai do aplicativo
+            data: { // data é onde vai estar nossas variaveis
+                titulo: "Aula 01 - Vuejs do jeito ninja!"
+            }
+        });
+    </script>
 </body>
 </html>
