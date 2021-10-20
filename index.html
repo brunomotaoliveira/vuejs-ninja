@@ -10,6 +10,7 @@
     <div id="app"> <!-- vuejs só vai funcionar dentro da tag pai -->
         <h1>{{ titulo }}</h1>  <!-- para fazer impressão de qualquer variavel no vuejs, se usa 2 chaves -->
     </div>
+    {{ titulo }}
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
     <script>
@@ -20,5 +21,8 @@
             }
         });
     </script>
+
+
+<!-- Em VueJS diretivas são codigos que você coloca dentro da tag html ( v-mode, v-for). É possivel criar a propria diretiva-->
 </body>
 </html>
