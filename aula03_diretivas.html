@@ -9,7 +9,8 @@
 <body>
     <div id="app">
         <h1>{{ titulo }}</h1>
-        <p v-show="texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam aliquid dolore expedita vel reprehenderit quasi accusantium perferendis dolorem velit eligendi minus magnam totam earum dolor nisi, veniam voluptatibus! Distinctio, eius!</p>
+        <p v-if="texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam aliquid dolore expedita vel reprehenderit quasi accusantium perferendis dolorem velit eligendi minus magnam totam earum dolor nisi, veniam voluptatibus! Distinctio, eius!</p>
+        <div v-else>Não existe texto</div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
