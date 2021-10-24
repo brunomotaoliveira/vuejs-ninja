@@ -9,7 +9,7 @@
 <body>
     <div id="app">
         <h1>{{ titulo }}</h1>
-        <img v-bind:src="imagem" alt="imagem teste">
+        <img v-bind:src="imagem" v-bind:alt="alt">
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -19,7 +19,8 @@
             el: "#app",
             data: {
                 titulo: "Vuejs do jeito ninja!",
-                imagem: "https://res.cloudinary.com/practicaldev/image/fetch/s--L71__yWO--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://dev-to-uploads.s3.amazonaws.com/i/z74oqos1984w5g5ah0i9.jpeg"
+                imagem: "https://res.cloudinary.com/practicaldev/image/fetch/s--L71__yWO--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://dev-to-uploads.s3.amazonaws.com/i/z74oqos1984w5g5ah0i9.jpeg",
+                alt: "imagem apenas para testar o vbind"
             }
         });
     </script>
