@@ -10,8 +10,8 @@
 <body>
     <div id="app">
         <h1>{{ titulo }}</h1>
-        <button class="btn" v-bind:class="btnClassLimpar">LIMPAR</button>
-        <button class="btn" v-bind:class="btnClassEnviar">ENVIAR</button>
+        <button class="btn" v-bind:class="btnClassLimpar" v-bind:style="btnStyleLimpar">LIMPAR</button>
+        <button class="btn" v-bind:class="btnClassEnviar" v-bind:style="btnStyleEnviar">ENVIAR</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -27,7 +27,9 @@
                 },
                 btnClassEnviar: [ //array
                     'btn-primary', { 'btn-lg': true}
-                ]
+                ],
+                btnStyleLimpar: 'font-size: 50px',
+                btnStyleEnviar: 'font-size: 10px'
             }
         });
     </script>
