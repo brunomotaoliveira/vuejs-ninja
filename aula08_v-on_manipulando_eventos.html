@@ -10,6 +10,10 @@
 <body>
     <div id="app">
         <h1>{{ titulo }}</h1>
+        <form action="https://google.com">
+            <button type="submit" class="btn btn-primary" v-on:click.prevent.stop="enviar()">Enviar</button>
+            <!-- prevent.stop cancela todas as outras ações-->
+        </form>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -20,6 +24,12 @@
             data: {
                 titulo: "Vuejs do jeito ninja",
             },
+
+            methods: { //regras de negocio
+                enviar() {
+                    alert('Enviado!');
+                },
+            }
         });
     </script>
     
