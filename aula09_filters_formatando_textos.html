@@ -11,7 +11,7 @@
     <div id="app">
         <h1>{{ titulo }}</h1>
         <ul>
-            <li v-for="usuario in usuarios">{{ usuario.nome | toUpperCase() }}</li>
+            <li v-for="usuario in usuarios">{{ usuario.nome | truncate() }}</li>
         </ul>
         <form action="https://google.com">
             <button type="submit" class="btn btn-primary" v-on:click.prevent.stop="enviar()">Enviar</button>
@@ -36,6 +36,10 @@
             filters: {
                 toUpperCase(str) {
                     return str.toUpperCase();
+                },
+
+                truncate(str) {
+                    return str.substring(0, 10);
                 }
             },
 
