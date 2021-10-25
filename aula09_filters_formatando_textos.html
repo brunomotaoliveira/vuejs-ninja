@@ -11,7 +11,8 @@
     <div id="app">
         <h1>{{ titulo }}</h1>
         <ul>
-            <li v-for="usuario in usuarios">{{ usuario.nome | truncate() }}</li>
+            <li v-for="usuario in usuarios">{{ usuario.nome | truncate('10') }}</li>
+            <!-- para criar qualquer tipo de filtro utiliza-se o pipe | -->
         </ul>
         <form action="https://google.com">
             <button type="submit" class="btn btn-primary" v-on:click.prevent.stop="enviar()">Enviar</button>
@@ -38,8 +39,12 @@
                     return str.toUpperCase();
                 },
 
-                truncate(str) {
-                    return str.substring(0, 10);
+                truncate(str, length) {
+                    var output = str;
+                    if (output.length > length) {
+                        output = str.substring(0, length) + ' ...';
+                    }
+                    return output;
                 }
             },
 
