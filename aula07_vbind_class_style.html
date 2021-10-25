@@ -21,7 +21,10 @@
             el: "#app",
             data: {
                 titulo: "Vuejs do jeito ninja!",
-                btnClassLimpar: 'btn-danger btn-sm',
+                btnClassLimpar: { //objetos
+                    'btn-danger': true,
+                    'btn-sm': true
+                },
                 btnClassEnviar: 'btn-primary btn-lg'
             }
         });
