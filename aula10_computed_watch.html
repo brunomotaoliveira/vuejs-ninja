@@ -21,8 +21,9 @@
 
             data: {
                 titulo: "VUEJS - Computed, watch e suas peculiaridades",
-                nome: "Jon",
-                lastName: "Snow"
+                nome: "",
+                lastName: "",
+                fullName: ""
             },
 
             computed: { // um objeto || Vai rodar sempre que as dependencias tiverem alterações
@@ -30,7 +31,11 @@
             },
 
             watch: { // vai observar se a variavel teve alguma alteração
-  
+                firstName(newValue) {
+                    this.fullName = newValue + ' ' + this.lastName;
+                },
+
+                
             },
 
             methods: {}
