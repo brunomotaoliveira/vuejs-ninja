@@ -35,7 +35,9 @@
                     this.fullName = newValue + ' ' + this.lastName;
                 },
 
-                
+                lastName(newValue) {
+                    this.fullName = this.firstName + ' ' + newValue;
+                }
             },
 
             methods: {}
