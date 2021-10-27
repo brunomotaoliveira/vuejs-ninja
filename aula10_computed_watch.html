@@ -33,16 +33,16 @@
             },
 
             watch: { // vai observar se a variavel teve alguma alteração
-            /*     firstName(newValue) {
-                    this.fullName = newValue + ' ' + this.lastName;
-                },
-
-                lastName(newValue) {
-                    this.fullName = this.firstName + ' ' + newValue;
-                } */
+                firstName(newValue) {
+                    this.updateUser();
+                }
             }, 
 
-            methods: {}
+            methods: {
+                updateUser() {
+                    console.log('Usuário atualizado!');
+                }
+            }
         });
     </script>
 </body>
