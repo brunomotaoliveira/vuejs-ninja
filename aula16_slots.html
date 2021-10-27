@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div id="app">
+        <br><br><br>
+
+        <div class="container">
+            <card></card>
+        </div>
+
+        <template id="card">
+            <div class="card">
+                <img src="http://via.placeholder.com/350x150" alt="">
+                <div class="card-block">
+                    <slot></slot>
+                    <h4 class="card-title">Card title</h4>
+                    <p class="card-text">Some quick example text to build on card title and more</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </template>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+        <script>
+            Vue.component('card', {
+                template: '#card',
+                data() {
+                    return {
+                        title: '',
+                    }
+                }
+            });
+
+            var app = new Vue({
+                el: "#app",
+
+                data: {
+                    titulo: "Vuejs do jeito"
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>
