@@ -21,28 +21,29 @@
 
             data: {
                 titulo: "VUEJS - Computed, watch e suas peculiaridades",
-                nome: "",
+                firstName: "",
                 lastName: "",
-                fullName: ""
+                // fullName: ""
             },
 
             computed: { // um objeto || Vai rodar sempre que as dependencias tiverem alterações
-
+                fullName() {
+                    return this.firstName + ' ' + this.lastName;
+                }
             },
 
             watch: { // vai observar se a variavel teve alguma alteração
-                firstName(newValue) {
+            /*     firstName(newValue) {
                     this.fullName = newValue + ' ' + this.lastName;
                 },
 
                 lastName(newValue) {
                     this.fullName = this.firstName + ' ' + newValue;
-                }
-            },
+                } */
+            }, 
 
             methods: {}
         });
     </script>
-    AULA PAUSADA EM 7:51
 </body>
 </html>
