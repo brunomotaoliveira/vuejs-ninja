@@ -9,8 +9,8 @@
 </head>
 <body>
     <div id="app">
-
-        <navbar></navbar> <!-- componente pai-->
+        <navbar></navbar>
+        <menu-bar v-bind:items="[{ label: 'A empresa' }, { label: 'Serviços'}]"></menu-bar> <!-- componente pai-->
     </div>
 
 
@@ -32,11 +32,11 @@
     </template>
 
     <template id="menu">
-        <ul class="navbar-nav mr-auto">
-            <li v-for="item in items" class="nav-item">
-              <a class="nav-link" href="#">{{ item.label }}</a>
-            </li>
-          </ul>
+            <ul class="navbar-nav mr-auto">
+                <li v-for="item in items" class="nav-item">
+                <a class="nav-link" href="#">{{ item.label }}</a>
+                </li>
+            </ul>
     </template>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -54,7 +54,12 @@
 
         Vue.component('menu-bar', {
             template: "#menu",
-            props: ['items'],
+            props: {
+                items: {
+                    type: Array,
+                    required: true
+                }
+            },
         });
 
         var app = new Vue({
