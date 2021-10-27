@@ -9,6 +9,15 @@
 </head>
 <body>
     <div id="app">
+
+        <navbar></navbar>
+        <menu-bar></menu-bar>
+        <menu-bar></menu-bar>
+        <menu-bar></menu-bar>
+    </div>
+
+
+    <template id="nav">
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
               <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
@@ -21,15 +30,8 @@
             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
             <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
           </div>
-
-
-
-        <h1>{{ titulo }}</h1>
-        <menu-bar></menu-bar>
-        <menu-bar></menu-bar>
-        <menu-bar></menu-bar>
-    </div>
-
+        </nav>
+    </template>
     <template id="menu">
         <ul>
             <li>Item1</li>
@@ -41,6 +43,9 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
     <script>
+        Vue.component('navbar',{ // instanciando o componente
+            template: '#nav'
+        });
         Vue.component('menu-bar', {
             template: "#menu"
         });
