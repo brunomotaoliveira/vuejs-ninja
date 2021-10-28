@@ -13,6 +13,9 @@
         <div class="container">
             <h1>{{ titulo }}</h1>
             <button v-on:click.stop.prevent="getUsers()" class="btn btn-success">SUBMIT</button>
+            <ul>
+                <li v-for="user in users">{{ user.name }}</li>
+            </ul>
         </div>
     </div>
 
@@ -25,7 +28,8 @@
                 getUsers() {
                     var url = 'http://jsonplaceholder.typicode.com/users';
                     this.$http.get(url).then(function(response){
-                        console.log(response.body); // response é o nome da variavel
+                        this.users = response.body;
+                        //console.log(response.body); // response é o nome da variavel
                     });
                 },
             }
@@ -36,7 +40,8 @@
             mixins: [mixin],
 
             data: {
-                titulo: "Vuejs do jeito ninja!"
+                titulo: "Vuejs do jeito ninja!",
+                users: [],
             }
         });
     </script>
