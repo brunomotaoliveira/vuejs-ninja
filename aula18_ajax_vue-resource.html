@@ -13,6 +13,7 @@
         <div class="container">
             <h1>{{ titulo }}</h1>
             <button v-on:click.stop.prevent="getUsers()" class="btn btn-success">SUBMIT</button>
+            <div v-if="response.status == 'error'" class="alert alert-danger">{{ response.msg }}</div>
             <ul>
                 <li v-for="user in users">{{ user.name }}</li>
             </ul>
@@ -26,10 +27,13 @@
         var mixin = {
             methods: {
                 getUsers() {
-                    var url = 'http://jsonplaceholder.typicode.com/users';
-                    this.$http.get(url).then(function(response){
+                    var url = 'http://jsonplaceholder.typicode.com/';
+                    this.$http.post(url).then(function(response){
                         this.users = response.body;
                         //console.log(response.body); // response é o nome da variavel
+                    }, function(error){
+                        this.response.status = "error";
+                        console.log(error);
                     });
                 },
             }
@@ -42,6 +46,10 @@
             data: {
                 titulo: "Vuejs do jeito ninja!",
                 users: [],
+                response: {
+                    msg: "Página não encontrada",
+                    status: ""
+                }
             }
         });
     </script>
