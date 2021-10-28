@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transições CSS</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .fade-enter-active, .fade-leave-active {
+            transition: opacity .5s;
+        }
+
+        .fade-enter, .fade-leave-to {
+            opacity: 0;
+        }
+    </style>
+
 </head>
 <body>
     <div id="app">
@@ -19,7 +29,10 @@
                 <option value="game-of-thrones">Game of Thrones</option>
             </select>
 
-            <component v-bind:is="movie"></component>
+            
+            <transition name="fade">
+                <component v-bind:is="movie"></component>
+            </transition>
 
             <ul ref="users">
                 <li v-for="(item, index)in users" v-bind:key="item.name">{{ item.name }}</li>
