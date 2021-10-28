@@ -8,7 +8,64 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
+    <div id="app">
+        <br><br><br>
+
+        <div class="container">
+            <h1>{{ titulo }}</h1>
+
+            <component is=""></component>
+
+            <transformers v-if="movie == 'transformers'"></transformers>
+            <game-of-thrones v-if="movie == 'game-of-thrones'"></game-of-thrones>
+
+            <ul ref="users">
+                <li v-for="(item, index)in users" v-bind:key="item.name">{{ item.name }}</li>
+            </ul>
+        </div>
+    </div>
+
+    <template id="transformers">
+        <div>
+            <h4>Transformers</h4>
+            <ul>
+                <li v-for="item in transformers">{{ item.name }}</li>
+            </ul>
+        </div>
+    </template>
+
+    <template id="gameOfThrones"></template>
+
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.3"></script>
+
+    <script>
+
+
+        var app = new Vue({
+            el:"#app",
+
+            mounted() {
+                console.log(this.$refs.users);
+            },
+
+            data: {
+                titulo: "Vuejs do jeito ninja!",
+                users: [
+                    { name: 'Emma' },
+                    { name: 'Sophia' },
+                    { name: 'Isabela' }
+                ],
+                movie: ''
+            },
+
+            methods: {
+                remove(index) {
+                    this.users.splice(index, 1);
+                }
+            }
+        });
+
+    </script>
 </body>
 </html>
