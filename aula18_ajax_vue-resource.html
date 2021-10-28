@@ -17,13 +17,16 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.3"></script><!-- se integra com o vuejs -->
 
     <script>
         var mixin = {
             methods: {
                 getUsers() {
-                    console.log('get users');
+                    var url = 'http://jsonplaceholder.typicode.com/users';
+                    this.$http.get(url).then(function(response){
+                        console.log(response.body); // response é o nome da variavel
+                    });
                 },
             }
         }
