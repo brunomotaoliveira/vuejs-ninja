@@ -12,18 +12,34 @@
         <br><br><br>
         <div class="container">
             <h1>{{ titulo }}</h1>
+            <button v-on:click.stop.prevent="getUsers()" class="btn btn-success">SUBMIT</button>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
     <script>
+        var mixin = {
+            methods: {
+                getUsers() {
+                    // rotina de programação
+                    // localizar usuários
+                    console.log('get users');
+                }
+            }
+        }
         var app = new Vue({
             el: "#app",
+
+            mixins: [mixin],
 
             data: {
                 titulo: "Vuejs do jeito ninja!"
             },
+
+            methods: {
+                
+            }
         });
     </script>
 </body>
