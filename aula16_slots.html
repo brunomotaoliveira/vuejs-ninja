@@ -12,17 +12,37 @@
         <br><br><br>
 
         <div class="container">
-            <card></card>
+            <card>
+                    <h4 slot="title" class="card-title">Card title</h4>
+
+                    <template slot="text">
+                        <p class="card-text">Some quick example text to build on card title and more</p>
+                        <p slot="text" class="card-text">Some quick example text to build on card title and more</p>
+                    </template>
+                    
+                    <a slot="action" href="#" class="btn btn-primary">Go somewhere</a>
+            </card>
+
+            <br>
+
+            <card>
+                    <h4 slot="title" class="card-title">Card title</h4>
+                    <template slot="text">
+                        <p slot="text" class="card-text">Some quick example text to build on card title and more</p>
+                        <p slot="text" class="card-text">Some quick example text to build on card title and more</p>
+                    </template>
+                    <a slot="action" href="#" class="btn btn-primary">Leia mais</a>
+            </card>
         </div>
 
         <template id="card">
             <div class="card">
                 <img src="http://via.placeholder.com/350x150" alt="">
                 <div class="card-block">
-                    <slot></slot>
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">Some quick example text to build on card title and more</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <slot name="title"></slot>
+                    <slot name="text"></slot>
+                    <slot name="action"></slot>
+
                 </div>
             </div>
         </template>
