@@ -20,12 +20,15 @@
 
     <script>
         var mixin = {
+            created() {
+                console.log('hello vue from mixin');
+            },
             methods: {
                 getUsers() {
                     // rotina de programação
                     // localizar usuários
                     console.log('get users');
-                }
+                },
             }
         }
         var app = new Vue({
