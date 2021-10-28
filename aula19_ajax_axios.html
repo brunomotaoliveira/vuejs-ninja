@@ -34,7 +34,10 @@
                     this.loader.users = true;
 
                     var url = 'http://jsonplaceholder.typicode.com/users';
+                    var vm = this; // coloca a instancia do vue(this) dentro da variavel vm
                     axios.get(url).then(function(response) {
+                        vm.this.users - response.data;
+                        vm.this.loader.users = false;
                         console.log(response);
                     });
 
