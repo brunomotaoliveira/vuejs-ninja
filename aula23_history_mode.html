@@ -26,10 +26,10 @@
             <h1 ref="title">{{ titulo }}</h1>
             <ul>
                 <li>
-                    <router-link to="/transformers">Transformers</router-link> <!-- direcionamento dos router -->
+                    <router-link :to="{ name: 'transformers' }">Transformers</router-link> <!-- direcionamento dos router -->
                 </li> 
                 <li>
-                    <router-link to="/game-of-thrones">Game of Thrones</router-link>
+                    <router-link :to="{ name: 'gameOfThrones' }">Game of Thrones</router-link>
                 </li>
             </ul>
 
@@ -91,8 +91,8 @@
         var router = new VueRouter({
             //mode: 'history',  -> remove o # do endereço
             routes: [
-                { path: '/transformers', component: Transformers},
-                { path: '/game-of-thrones', component: GameOfThrones}
+                { path: '/transformers', name: 'transformers', component: Transformers},
+                { path: '/game-of-thrones', name: 'gameOfThrones', component: GameOfThrones}
             ]
         });
 
