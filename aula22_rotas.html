@@ -65,6 +65,15 @@
 
     <script>
 
+        //instanciando o router
+        var router = new VueRouter({
+            routes: [
+                { path: '/transformers', component: Transformers},
+                { path: '/game-of-thrones', component: GameOfThrones}
+            ]
+        });
+
+
         Vue.component('transformers-movie', {
             template: '#transformers',
             data() {
@@ -93,6 +102,8 @@
 
         var app = new Vue({
             el:"#app",
+
+            router, // informa ao vuejs que está sendo utilizado um roteador
 
             mounted() {
                 console.log(this.$refs.users);
