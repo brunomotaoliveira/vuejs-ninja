@@ -4,38 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transições CSS</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <style>
-        .fade-enter-active, .fade-leave-active {
-            transition: opacity .5s;
-        }
-
-        .fade-enter, .fade-leave-to {
-            opacity: 0;
-        }
-    </style>
-
+    <title>Atributos especiais Key, ref, slot, is</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 </head>
 <body>
     <div id="app">
         <br><br><br>
 
-        <div class="container">
+        <div class="container mt-5">
             <h1 ref="title">{{ titulo }}</h1>
 
-            <select v-model="movie">
-                <option value="transformers">Transformers</option>
-                <option value="game-of-thrones">Game of Thrones</option>
-            </select>
-
-            
-            <transition name="fade">
-                <component v-bind:is="movie"></component>
-            </transition>
+            <component :is="movie"></component>
 
             <ul ref="users">
-                <li v-for="(item, index) in users" v-bind:key="item.name">{{ item.name }}<a v-on:click.stop.prevent="remove()">X</a></li>
+                <li v-for="(item, index) in users" :key="item.name">{{ item.name }} <a @click.stop.prevent="remove()" style="color: red; cursor: pointer;">X</a></li>
             </ul>
         </div>
     </div>
@@ -45,19 +28,15 @@
             <h4>Transformers</h4>
             <ul>
                 <li v-for="item in transformers">{{ item.name }}</li>
-                <li v-for="item in transformers">{{ item.name }}</li>
-                <li v-for="item in transformers">{{ item.name }}</li>
             </ul>
         </div>
     </template>
 
     <template id="gameOfThrones">
         <div>
-            <h4>Game of Thrones</h4>
+            <h4>Game Of Thrones</h4>
             <ul>
-                <li v-for="item in game-of-thrones">{{ item.name }}</li>
-                <li v-for="item in game-of-thrones">{{ item.name }}</li>
-                <li v-for="item in game-of-thrones">{{ item.name }}</li>
+                <li v-for="item in gameOfThrones">{{ item.name }}</li>
             </ul>
         </div>
     </template>
@@ -67,15 +46,15 @@
 
     <script>
 
-        Vue.component('transformers', {
+        Vue.component('transformers-movie', {
             template: '#transformers',
             data() {
                 return {
-                    gameOfThrones: [
-                        { name: 'Jon Snow' },
-                        { name: 'Daenerys Targaryen' },
-                        { name: 'Tyron' }
-                    ],
+                    transformers: [
+                        { name: 'Optmus Prime' },
+                        { name: 'Bumble Bee' },
+                        { name: 'Megatron' }
+                    ]
                 }
             }
         })
@@ -85,10 +64,10 @@
             data() {
                 return {
                     gameOfThrones: [
-                        { name: 'Jon Snow' },
+                        { name: 'Jon Snow'},
                         { name: 'Daenerys Targaryen' },
                         { name: 'Tyron' }
-                    ],
+                    ]
                 }
             }
         })
@@ -107,14 +86,14 @@
                     { name: 'Sophia' },
                     { name: 'Isabela' }
                 ],
-                movie: 'transformers'
+                movie: 'transformers-movie' // nome do componente
             },
 
             methods: {
                 remove(index) {
                     this.users.splice(index, 1);
                 }
-            }
+            },
         });
 
     </script>
