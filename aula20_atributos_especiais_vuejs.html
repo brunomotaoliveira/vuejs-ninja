@@ -17,11 +17,11 @@
 
             <component :is="movie"></component>
 
-            <transformers v-if="movie == 'transformers'"></transformers>
-            <game-of-thrones v-if="movie == 'game-of-thrones'"></game-of-thrones>
+            <!-- <transformers v-if="movie == 'transformers'"></transformers>
+            <game-of-thrones v-if="movie == 'game-of-thrones'"></game-of-thrones> -->
 
             <ul ref="users">
-                <li v-for="(item, index) in users" :key="item.name">{{ item.name }} <a @click.prevent="remove()" style="color: red; cursor: pointer;">X</a></li>
+                <li v-for="(item, index) in users" :key="item.name">{{ item.name }} <a @click.stop.prevent="remove()" style="color: red; cursor: pointer;">X</a></li>
             </ul>
         </div>
     </div>
