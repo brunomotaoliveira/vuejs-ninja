@@ -24,20 +24,6 @@
 
         <div class="container mt-5">
             <h1 ref="title">{{ titulo }}</h1>
-
-            <select v-model="movie">
-                <option value="transformers-movie">Transformers</option>
-                <option value="game-of-thrones">Game of Thrones</option>
-            </select>
-
-            
-            <transition name="fade">
-                <component :is="movie"></component>
-            </transition>
-
-            <ul ref="users">
-                <li v-for="(item, index) in users" :key="item.name">{{ item.name }} <a @click.stop.prevent="remove()" style="color: red; cursor: pointer;">X</a></li>
-            </ul>
         </div>
     </div>
 
@@ -104,24 +90,8 @@
 
             router, // informa ao vuejs que está sendo utilizado um roteador
 
-            mounted() {
-                console.log(this.$refs.users);
-            },
-
             data: {
                 titulo: "Vuejs do jeito ninja!",
-                users: [
-                    { name: 'Emma' },
-                    { name: 'Sophia' },
-                    { name: 'Isabela' }
-                ],
-                movie: 'transformers-movie' // nome do componente
-            },
-
-            methods: {
-                remove(index) {
-                    this.users.splice(index, 1);
-                }
             },
         });
 
