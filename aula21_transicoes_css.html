@@ -15,7 +15,15 @@
         <div class="container mt-5">
             <h1 ref="title">{{ titulo }}</h1>
 
-            <component :is="movie"></component>
+            <select v-model="movie">
+                <option value="transformers-movie">Transformers</option>
+                <option value="game-of-thrones">Game of Thrones</option>
+            </select>
+
+            
+            <transition name="fade">
+                <component :is="movie"></component>
+            </transition>
 
             <ul ref="users">
                 <li v-for="(item, index) in users" :key="item.name">{{ item.name }} <a @click.stop.prevent="remove()" style="color: red; cursor: pointer;">X</a></li>
