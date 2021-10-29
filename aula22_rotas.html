@@ -65,16 +65,7 @@
 
     <script>
 
-        //instanciando o router
-        var router = new VueRouter({
-            routes: [
-                { path: '/transformers', component: Transformers},
-                { path: '/game-of-thrones', component: GameOfThrones}
-            ]
-        });
-
-
-        Vue.component('transformers-movie', {
+        var Transformers = Vue.component('transformers-movie', {
             template: '#transformers',
             data() {
                 return {
@@ -85,9 +76,9 @@
                     ]
                 }
             }
-        })
+        });
 
-        Vue.component('game-of-thrones', {
+        var GameOfThrones = Vue.component('game-of-thrones', {
             template: '#gameOfThrones',
             data() {
                 return {
@@ -98,7 +89,15 @@
                     ]
                 }
             }
-        })
+        });
+
+        //instanciando o router
+        var router = new VueRouter({
+            routes: [
+                { path: '/transformers', component: Transformers},
+                { path: '/game-of-thrones', component: GameOfThrones}
+            ]
+        });
 
         var app = new Vue({
             el:"#app",
