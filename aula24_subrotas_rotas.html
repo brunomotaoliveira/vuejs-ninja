@@ -101,7 +101,10 @@
         var router = new VueRouter({
             //mode: 'history',  /* -> remove o # do endereço */
             routes: [
-                { path: '/transformers', name: 'transformers', component: Transformers},
+                { path: '/transformers', name: 'transformers', component: Transformers,
+                  children: [
+                      { path: '/:name', name: 'transformersContent', component: TransformersContent },
+                  ]},
                 { path: '/game-of-thrones', name: 'gameOfThrones', component: GameOfThrones}
             ]
         });
