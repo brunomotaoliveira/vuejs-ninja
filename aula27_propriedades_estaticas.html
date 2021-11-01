@@ -87,6 +87,13 @@
 
         var Transformers = Vue.component('transformers-movie', {
             template: '#transformers',
+            props: {
+                sidebar: Boolean,
+            },
+            created() {
+                console.log(this.sidebar);
+            },
+            
             data() {
                 return {
                     transformers: [
@@ -125,6 +132,7 @@
             routes: [
                 { path: '/', name: 'home', redirect: { name: 'transformersContent', params: { name: 'optmus-prime'} } }, /* redirecionamento */
                 { path: '/transformers', name: 'transformers', component: Transformers,
+                  props: { sidebar: false },
                   children: [
                       { path: ':name', name: 'transformersContent', component: TransformersContent },
                   ]},
