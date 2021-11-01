@@ -15,6 +15,11 @@
             opacity: 0;
         }
 
+        .dark {
+            color: #fff;
+            background-color: #000;
+        }
+
 
     </style>
     </head>
@@ -43,7 +48,7 @@
     <template id="transformers">
         <div>
             <div class="row">
-                <div v-if="sidebar" class="col">
+                <div :class="['col', { dark: sidebar == 'dark'}]">
                     Sidebar
                 </div>
                 <div class="col">
@@ -135,7 +140,7 @@
             routes: [
                 { path: '/', name: 'home', redirect: { name: 'transformersContent', params: { name: 'optmus-prime'} } }, /* redirecionamento */
                 { path: '/transformers', name: 'transformers', component: Transformers,
-                  props: { sidebar: false},
+                  props: { sidebar: 'dark' },
                   children: [
                       { path: ':name', name: 'transformersContent', component: TransformersContent },
                   ]},
