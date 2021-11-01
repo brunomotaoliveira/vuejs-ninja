@@ -123,8 +123,11 @@
             router, // informa ao vuejs que está sendo utilizado um roteador
 
             created() {
-                console.log(this.$router); /* router é pra utilizar as funcionalidades do plugon */
-                console.log(this.$route); /* route pega os parametros da rota atual */
+                this.$router.push({ name: 'transformersContent', params: { name: 'optmus-prime'} });
+
+
+                /* console.log(this.$router); router é pra utilizar as funcionalidades do plugon */
+                /* console.log(this.$route);  route pega os parametros da rota atual */
             },
 
             data: {
