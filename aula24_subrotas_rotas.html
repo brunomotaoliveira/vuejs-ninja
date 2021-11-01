@@ -55,6 +55,12 @@
         </div>
     </template>
 
+    <template id="transformersContent">
+        <div>
+            <h3>Conteúdo Transformers</h3>
+        </div>
+    </template>
+
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.3"></script>
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
@@ -88,7 +94,7 @@
         });
 
         var TransformersContent = Vue.component('transformers-content', {
-            template: 'transformerContent',
+            template: 'transformersContent',
         });
 
         //instanciando o router
