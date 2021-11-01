@@ -124,7 +124,8 @@
                   children: [
                       { path: ':name', name: 'transformersContent', component: TransformersContent },
                   ]},
-                { path: '/game-of-thrones', name: 'gameOfThrones', component: GameOfThrones}
+                { path: '/game-of-thrones', name: 'gameOfThrones', component: GameOfThrones},
+                { path: '*', name: 'error404', component: error404 }
             ]
         });
 
