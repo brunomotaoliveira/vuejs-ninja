@@ -43,6 +43,9 @@
     <template id="transformers">
         <div>
             <div class="row">
+                <div v-if="sidebar" class="col">
+                    Sidebar
+                </div>
                 <div class="col">
                     <h3>Transformers</h3>
                     <ul>
@@ -88,7 +91,7 @@
         var Transformers = Vue.component('transformers-movie', {
             template: '#transformers',
             props: {
-                sidebar: String,
+                sidebar: Boolean,
             },
             created() {
                 console.log(this.sidebar);
@@ -132,7 +135,7 @@
             routes: [
                 { path: '/', name: 'home', redirect: { name: 'transformersContent', params: { name: 'optmus-prime'} } }, /* redirecionamento */
                 { path: '/transformers', name: 'transformers', component: Transformers,
-                  props: { sidebar: 'dark'},
+                  props: { sidebar: false},
                   children: [
                       { path: ':name', name: 'transformersContent', component: TransformersContent },
                   ]},
