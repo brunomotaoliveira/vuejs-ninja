@@ -41,7 +41,7 @@
         <div>
             <h4>Transformers</h4>
             <ul>
-                <li v-for="item in transformers">{{ item.name }}</li>
+                <li v-for="item in transformers"><router-link :to="{ name: 'transformersContent', params: { name: item.slug } }">{{ item.name }}</router-link></li>
             </ul>
         </div>
     </template>
@@ -72,9 +72,9 @@
             data() {
                 return {
                     transformers: [
-                        { name: 'Optmus Prime' },
-                        { name: 'Bumble Bee' },
-                        { name: 'Megatron' }
+                        { name: 'Optmus Prime', slug: 'optmus-prime' },
+                        { name: 'Bumble Bee', slug: 'bumble-bee' },
+                        { name: 'Megatron', slug: 'megatron' }
                     ]
                 }
             }
@@ -103,7 +103,7 @@
             routes: [
                 { path: '/transformers', name: 'transformers', component: Transformers,
                   children: [
-                      { path: '/:name', name: 'transformersContent', component: TransformersContent },
+                      { path: ':name', name: 'transformersContent', component: TransformersContent },
                   ]},
                 { path: '/game-of-thrones', name: 'gameOfThrones', component: GameOfThrones}
             ]
