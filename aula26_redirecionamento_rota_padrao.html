@@ -31,6 +31,9 @@
                 <li>
                     <router-link :to="{ name: 'gameOfThrones' }">Game of Thrones</router-link>
                 </li>
+                <li>
+                    <router-link to="/arrow">Arrow</router-link>
+                </li>
             </ul>
 
             <router-view></router-view> <!-- informa ao vueja para renderizar os componnetes da rota principal -->
@@ -120,6 +123,7 @@
         var router = new VueRouter({
             //mode: 'history',  /* -> remove o # do endereço */
             routes: [
+                { path: '/', name: 'home', redirect: { name: 'transformersContent', params: { name: 'optmus-prime'} } }, /* redirecionamento */
                 { path: '/transformers', name: 'transformers', component: Transformers,
                   children: [
                       { path: ':name', name: 'transformersContent', component: TransformersContent },
@@ -135,7 +139,7 @@
             router, // informa ao vuejs que está sendo utilizado um roteador
 
             created() {
-                this.$router.push({ name: 'transformersContent', params: { name: 'optmus-prime'} });
+                //this.$router.push({ name: 'transformersContent', params: { name: 'optmus-prime'} });
 
 
                 /* console.log(this.$router); router é pra utilizar as funcionalidades do plugon */
