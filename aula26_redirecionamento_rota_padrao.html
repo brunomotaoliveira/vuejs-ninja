@@ -112,6 +112,10 @@
             template: '#transformersContent',
         });
 
+        var error404 = Vue.component('error404', {
+            template: '#error404'
+        })
+
         //instanciando o router
         var router = new VueRouter({
             //mode: 'history',  /* -> remove o # do endereço */
