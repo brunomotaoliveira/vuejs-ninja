@@ -33,16 +33,23 @@
                 </li>
             </ul>
 
-            <router-view></router-view> <!-- informa ao vueja para renderizar os componnetes -->
+            <router-view></router-view> <!-- informa ao vueja para renderizar os componnetes da rota principal -->
         </div>
     </div>
 
     <template id="transformers">
         <div>
-            <h4>Transformers</h4>
-            <ul>
-                <li v-for="item in transformers"><router-link :to="{ name: 'transformersContent', params: { name: item.slug } }">{{ item.name }}</router-link></li>
-            </ul>
+            <div class="row">
+                <div class="col">
+                    <h3>Transformers</h3>
+                    <ul>
+                        <li v-for="item in transformers"><router-link :to="{ name: 'transformersContent', params: { name: item.slug } }">{{ item.name }}</router-link></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <router-view></router-view> <!-- renderiza o conteúdo das subrotas -->
+                </div>
+            </div>
         </div>
     </template>
 
@@ -58,6 +65,7 @@
     <template id="transformersContent">
         <div>
             <h3>Conteúdo Transformers</h3>
+            {{ $route.params.name }}
         </div>
     </template>
 
@@ -94,7 +102,7 @@
         });
 
         var TransformersContent = Vue.component('transformers-content', {
-            template: 'transformersContent',
+            template: '#transformersContent',
         });
 
         //instanciando o router
